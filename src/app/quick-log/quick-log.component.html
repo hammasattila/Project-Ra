@@ -1,0 +1,55 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Personal finance</mat-card-title>
+        <mat-card-subtitle>Quick log</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-horizontal-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="essentialFormGroup">
+                <form [formGroup]="essentialFormGroup">
+                    <ng-template matStepLabel>Esentials</ng-template>
+                    <mat-form-field>
+                        <mat-label>Select an option</mat-label>
+                        <mat-select [(value)]="selected" formControlName="essentialCtrl" required>
+                            <mat-option value="Income">Income</mat-option>
+                            <mat-option value="Expense">Expense</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Amount" type="number" formControlName="essentialCtrl" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-stroked-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="detailsFormGroup">
+                <form [formGroup]="detailsFormGroup">
+                    <ng-template matStepLabel>Details</ng-template>
+                    <mat-form-field>
+                        <input matInput placeholder="Name" formControlName="detailsCtrl">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="From" formControlName="detailsCtrl">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Comment" formControlName="detailsCtrl">
+                    </mat-form-field>
+                    <div>
+                        <button mat-stroked-button matStepperPrevious>Back</button>
+                        <button mat-stroked-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                You are now done.
+                <div>
+                    <button mat-stroked-button matStepperPrevious>Back</button>
+                    <button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
+                    <button mat-raised-button color="primary">Log</button>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </mat-card-content>
+</mat-card>
