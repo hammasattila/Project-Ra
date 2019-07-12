@@ -4,36 +4,35 @@
         <mat-card-subtitle>Quick log</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <mat-horizontal-stepper [linear]="isLinear" #stepper>
-            <mat-step [stepControl]="essentialFormGroup">
-                <form [formGroup]="essentialFormGroup">
+        <mat-vertical-stepper linear #stepper>
+            <mat-step [stepControl]="eFormGroup">
+                <form [formGroup]="eFormGroup">
                     <ng-template matStepLabel>Esentials</ng-template>
                     <mat-form-field>
                         <mat-label>Select an option</mat-label>
-                        <mat-select [(value)]="selected" formControlName="essentialCtrl" required>
-                            <mat-option value="Income">Income</mat-option>
-                            <mat-option value="Expense">Expense</mat-option>
+                        <mat-select formControlName="typeFormCtrl" required>
+                            <mat-option *ngFor="let rType of rTypes" [value]="rType">{{ rType }}</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput placeholder="Amount" type="number" formControlName="essentialCtrl" required>
+                        <input matInput placeholder="Amount" type="number" formControlName="valueFormCtrl" required>
                     </mat-form-field>
                     <div>
                         <button mat-stroked-button matStepperNext>Next</button>
                     </div>
                 </form>
             </mat-step>
-            <mat-step [stepControl]="detailsFormGroup">
-                <form [formGroup]="detailsFormGroup">
+            <mat-step [stepControl]="dFormGroup" optional>
+                <form [formGroup]="dFormGroup">
                     <ng-template matStepLabel>Details</ng-template>
                     <mat-form-field>
-                        <input matInput placeholder="Name" formControlName="detailsCtrl">
+                        <input matInput placeholder="Name" type="text" formControlName="nameFormCtrl">
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput placeholder="From" formControlName="detailsCtrl">
+                        <input matInput placeholder="From" type="text" formControlName="fromFormCtrl">
                     </mat-form-field>
                     <mat-form-field>
-                        <input matInput placeholder="Comment" formControlName="detailsCtrl">
+                        <input matInput placeholder="Comment" type="text" formControlName="commentFormCtrl">
                     </mat-form-field>
                     <div>
                         <button mat-stroked-button matStepperPrevious>Back</button>
@@ -42,14 +41,17 @@
                 </form>
             </mat-step>
             <mat-step>
-                <ng-template matStepLabel>Done</ng-template>
-                You are now done.
+                <ng-template matStepLabel>Overview</ng-template>
+                <p>Type: {{ this.eFormGroup.value.typeFormCtrl }}</p>
+                <p>Amount: {{ this.eFormGroup.value.valueFormCtrl }}</p>
+                <p>Name: {{ this.dFormGroup.value.nameFormCtrl }}</p>
+                <p>From: {{ this.dFormGroup.value.fromFormCtrl }}</p>
                 <div>
                     <button mat-stroked-button matStepperPrevious>Back</button>
                     <button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
-                    <button mat-raised-button color="primary">Log</button>
+                    <button mat-raised-button color="primary" (click)="test();">Log</button>
                 </div>
             </mat-step>
-        </mat-horizontal-stepper>
+        </mat-vertical-stepper>
     </mat-card-content>
 </mat-card>

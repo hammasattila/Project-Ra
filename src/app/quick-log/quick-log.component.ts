@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Record } from '../record';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-quick-log',
@@ -8,39 +7,33 @@ import { Record } from '../record';
   styleUrls: ['./quick-log.component.scss']
 })
 export class QuickLogComponent implements OnInit {
-  isLinear = false;
-  rFormGroup: FormGroup;
-  essentialFormGroup: FormGroup;
-  detailsFormGroup: FormGroup;
+  eFormGroup: FormGroup;
+  dFormGroup: FormGroup;
+  rTypes = ['Income', 'Expense'];
 
-  constructor(private _formBuilder: FormBuilder) {
-    this.rFormGroup = new FormGroup({
-      essentialFormGroup: new FormGroup({
-        type: new FormControl(),
-        value: new FormControl()
-      }),
-      detailsFormGroup: new FormGroup({
-        name: new FormControl(),
-        from: new FormControl(),
-        comment: new FormControl()
-      })
-    })
-
-    //this.essentialFormGroup = new FormGroup({ type: new FormControl(), value: new FormControl() });
-    //this.detailsFormGroup = new FormGroup({ type: new FormControl(), value: new FormControl() });
-}
+  constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.rFormGroup = this._formBuilder.group({
-      rCtrl: ['', Validators.required]
+    this.eFormGroup = this._formBuilder.group({
+      typeFormCtrl: ['', Validators.required],
+      valueFormCtrl: ['', Validators.required]
     });
-    /*this.essentialFormGroup = this._formBuilder.group({
-      essentialCtrl: ['', Validators.required]
+
+    this.dFormGroup = this._formBuilder.group({
+      nameFormCtrl: '',
+      fromFormCtrl: '',
+      commentFormCtrl: ''
     });
-    //this.detailsFormGroup = this._formBuilder.group({
-      detailsCtrl: ['', Validators.required]
-    });*/
   }
 
-  ngOn
+  test() {
+    // const r: Record = {
+    //   type: 0,
+    //   value: 2,
+    //   name: '',
+    //   from: '',
+    //   comment: ''
+    // };
+    // this._recordApi.AddRecord(r);
+  }
 }

@@ -17,6 +17,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 
+/// Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { environment } from '../environments/environment';
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -24,6 +30,8 @@ import { MatSelectModule } from '@angular/material/select';
       QuickLogComponent
    ],
    imports: [
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+      AngularFirestoreModule, // Only required for database features
       BrowserModule,
       AppRoutingModule,
       MatToolbarModule,
