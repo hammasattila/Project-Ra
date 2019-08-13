@@ -1,5 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -22,6 +22,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from '../environments/environment';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material';
 
 @NgModule({
    declarations: [
@@ -43,6 +45,8 @@ import { environment } from '../environments/environment';
       MatSelectModule,
       MatStepperModule,
       MatFormFieldModule,
+      MatIconModule,
+      MatMenuModule,
       BrowserAnimationsModule,
    ],
    providers: [],

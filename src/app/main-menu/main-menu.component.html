@@ -1,3 +1,21 @@
 <mat-toolbar color="primary">
-  <span>Project Ra</span>
+  <mat-toolbar-row>
+    <span>Project Ra</span>
+
+    <span class="fill-remaining-space"></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Preferences</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>power_settings_new</mat-icon>
+          <span>Log out</span>
+        </button>
+      </mat-menu>
+  </mat-toolbar-row>
 </mat-toolbar>

@@ -1,3 +1,5 @@
+import { Record } from './../shared/record';
+import { FirebaseService } from './../shared/firebase.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -11,7 +13,7 @@ export class QuickLogComponent implements OnInit {
   dFormGroup: FormGroup;
   rTypes = ['Income', 'Expense'];
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private _friebaseAPI: FirebaseService) { }
 
   ngOnInit() {
     this.eFormGroup = this._formBuilder.group({
@@ -27,13 +29,15 @@ export class QuickLogComponent implements OnInit {
   }
 
   test() {
-    // const r: Record = {
-    //   type: 0,
-    //   value: 2,
-    //   name: '',
-    //   from: '',
-    //   comment: ''
-    // };
-    // this._recordApi.AddRecord(r);
+    const r: Record = {
+      type: this.rTypes.indexOf(this.eFormGroup.value.typeFormCtrl),
+      value: this.eFormGroup.value.valueFormCtrl,
+      name: this.dFormGroup.value.nameFormCtrl,
+      from: this.dFormGroup.value.fromFormCtrl,
+      comment: this.dFormGroup.value.commentFormCtrl
+    };
+    console.log(r);
+    
+    this._friebaseAPI.createRecord(r);
   }
 }

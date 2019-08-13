@@ -46,10 +46,11 @@
                 <p>Amount: {{ this.eFormGroup.value.valueFormCtrl }}</p>
                 <p>Name: {{ this.dFormGroup.value.nameFormCtrl }}</p>
                 <p>From: {{ this.dFormGroup.value.fromFormCtrl }}</p>
+                <p>Comment: {{ this.dFormGroup.value.commentFormCtrl }}</p>
                 <div>
                     <button mat-stroked-button matStepperPrevious>Back</button>
                     <button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
-                    <button mat-raised-button color="primary" (click)="test();">Log</button>
+                    <button mat-raised-button color="primary" (click)="test()">Log</button>
                 </div>
             </mat-step>
         </mat-vertical-stepper>
