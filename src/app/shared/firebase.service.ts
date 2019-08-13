@@ -18,4 +18,8 @@ export class FirebaseService {
       comment: r.comment
     });
   }
+
+  getRecords() {
+    return this.db.collection('records').get();
+  }
 }
