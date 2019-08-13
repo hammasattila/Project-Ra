@@ -1,4 +1,4 @@
-import { Record, RecordType } from '../../shared/record';
+import { Record } from '../../shared/record';
 import { FirebaseService } from '../../shared/firebase.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
