@@ -1,10 +1,10 @@
-import { Record } from './../shared/record';
-import { FirebaseService } from './../shared/firebase.service';
+import { Record } from '../../shared/record';
+import { FirebaseService } from '../../shared/firebase.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-quick-log',
+  selector: 'home-quick-log',
   templateUrl: './quick-log.component.html',
   styleUrls: ['./quick-log.component.scss']
 })

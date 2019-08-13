@@ -8,14 +8,14 @@
       <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button routerLink="/preferences" routerLinkActive="active" mat-menu-item>
           <mat-icon>settings</mat-icon>
           <span>Preferences</span>
         </button>
-        <button mat-menu-item>
+        <a routerLink="/" routerLinkActive="active" mat-menu-item >
           <mat-icon>power_settings_new</mat-icon>
           <span>Log out</span>
-        </button>
+        </a>
       </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

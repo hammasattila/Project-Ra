@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { QuickLogComponent } from './quick-log/quick-log.component';
 
 /// Firebase
 import { AngularFireModule } from '@angular/fire';
@@ -17,12 +16,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from '../environments/environment';
 import { DesignModule } from './design/design.module';
+import { HomeModule } from './home/home.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
    declarations: [
       AppComponent,
-      MainMenuComponent,
-      QuickLogComponent
+      MainMenuComponent
    ],
    imports: [
       AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -32,7 +32,9 @@ import { DesignModule } from './design/design.module';
       FormsModule,
       ReactiveFormsModule,
       BrowserAnimationsModule,
-      DesignModule
+      DesignModule,
+      HomeModule,
+      UserModule
    ],
    providers: [],
    bootstrap: [
