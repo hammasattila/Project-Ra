@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,17 +10,13 @@ import { AppComponent } from './app.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QuickLogComponent } from './quick-log/quick-log.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 
 /// Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from '../environments/environment';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material';
+import { DesignModule } from './design/design.module';
 
 @NgModule({
    declarations: [
@@ -36,18 +29,10 @@ import { MatMenuModule } from '@angular/material';
       AngularFirestoreModule, // Only required for database features
       BrowserModule,
       AppRoutingModule,
-      MatToolbarModule,
-      MatCardModule,
-      MatButtonModule,
       FormsModule,
       ReactiveFormsModule,
-      MatInputModule,
-      MatSelectModule,
-      MatStepperModule,
-      MatFormFieldModule,
-      MatIconModule,
-      MatMenuModule,
       BrowserAnimationsModule,
+      DesignModule
    ],
    providers: [],
    bootstrap: [
